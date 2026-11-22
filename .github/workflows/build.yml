@@ -1,0 +1,23 @@
+name: Build Repan5 EXE
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-repan5:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Compile C++ menjadi EXE
+        run: g++ -static "repan5.cpp" -o "repan5.exe"
+
+      - name: Upload file EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: hasil-repan5
+          path: "repan5.exe"
