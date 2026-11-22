@@ -1,4 +1,4 @@
-name: Build Repan5 EXE
+name: Build Azka5 EXE
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-repan5:
+  build-azka5:
     runs-on: windows-latest
 
     steps:
@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile C++ menjadi EXE
-        run: g++ -static "repan5.cpp" -o "repan5.exe"
+        run: g++ -static "azka5.cpp" -o "azka5.exe"
 
       - name: Upload file EXE
         uses: actions/upload-artifact@v4
         with:
-          name: hasil-repan5
-          path: "repan5.exe"
+          name: hasil-azka5
+          path: "azka5.exe"
